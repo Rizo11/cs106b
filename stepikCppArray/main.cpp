@@ -2,6 +2,38 @@
 
 using namespace std;
 
+void show_diagonals() {
+    int d = 4;
+    int matrix[d][d];
+    cout << "Enter matrix: " << endl;
+
+    for(int i= 0; i < d; i++) {
+        for(int j= 0; j < d; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+
+    int i = 0, j = d-1;
+    while(true) {
+        cout << matrix[i][j] << " ";
+        ++i; ++j;
+
+        if(i == d && j == 1) {
+            break;
+        }
+
+         if (i == d) {
+            i = d - j + 1;
+            j = 0;
+            cout << endl;
+        } else if(j == d) {
+            j = d - i - 1;
+            i = 0;
+            cout << endl;
+        }
+    }
+}
+
 void find_negativ() {
     int r = 3, c = 4;
     int matrix[r][c] = {{}};
@@ -143,7 +175,11 @@ int main()
 
 
 
-    diagonal_sum_sq_matrix();
+//    diagonal_sum_sq_matrix();
+
+
+
+    show_diagonals();
 
     return 0;
 }
@@ -151,4 +187,5 @@ int main()
 1 2 3 4
 5 6 7 8
 9 0 1 2
+5 8 3 4
 */
